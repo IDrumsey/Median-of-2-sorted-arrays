@@ -1,0 +1,21 @@
+1. Let Array A be the smaller of the two (switch if necessary)
+
+2. First Iteration of Function Parameters(min, max, size A, size B, Arr A, Arr B)
+
+	A. 	Find midA --> ((min + max)/2)
+		Find midB --> ((B.len + A.len + 1)/2)-midA
+
+		A_left = A[midA-1]	A_right = A[midA]
+		B_left = B[midB-1]	B_right = B[midB]
+
+	B.	if (A_left <= B_right && B_left <= A_right)
+			Check if total of both arrays is even or odd
+			if odd --> return max(left)
+			if even --> return (max(left)+min(right))/2
+		
+		else
+			if(!A_left <= B_right)     (too far right-->move left)
+				Recursive Call Parameters (midA-1, max, A, B)
+
+			else if(!B_left <= A_right)     (too far left-->move right)
+				Recursive Call Parameters (midA+1, max, A, B)
